@@ -1,0 +1,1766 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="IMAGES/title-logo.jfif" type="image/x-icon">
+    <title>MUIA Inc</title>
+</head>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    nav {
+        background-color: rgb(163, 160, 160);
+        padding: 5px 0px;
+        height: 80px;
+        animation: color 20s infinite;
+    }
+    
+    @keyframes color {
+        25% {
+            background-color: rgb(110, 103, 81);
+        }
+        50% {
+            background-color: rgb(163, 160, 160);
+        }
+        75% {
+            background-color: rgb(103, 117, 80);
+        }
+    }
+    
+    .logo-hold img {
+        margin-top: 15px;
+        margin-left: 20px;
+    }
+    
+    nav ul {
+        float: right;
+        margin: 0;
+        line-height: 70px;
+        margin-right: 50px;
+    }
+    
+    nav ul li {
+        display: inline-block;
+        margin: 0px 14px;
+    }
+    
+    nav ul li a {
+        color: black;
+        text-decoration: none;
+        font-size: 15px;
+        transition: all .4s;
+    }
+    
+    nav ul li a:hover {
+        color: darkred;
+    }
+    
+    nav ul li i {
+        margin-left: 4px;
+    }
+    
+    .checkBtn {
+        float: right;
+        margin: 0;
+        line-height: 80px;
+        margin-right: 30px;
+        font-size: 25px;
+        color: darkred;
+    }
+    
+    .btn-area {
+        margin-left: 80px;
+    }
+    
+    .btn-area button {
+        margin: 0px 10px;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        border: none;
+        background-color: black;
+        color: white;
+        font-size: 17px;
+        transition: .5s;
+    }
+    /* .btn-area button:hover {
+        background-color: darkred;
+    } */
+    
+    #check {
+        display: none;
+    }
+    
+    .checkBtn {
+        display: none;
+    }
+    
+    @media screen and (max-width: 720px) {
+        nav ul {
+            background-color: rgba(139, 0, 0, 0.849);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(20px);
+            position: absolute;
+            z-index: 1;
+            height: 0vh;
+            width: 87%;
+            top: 90px;
+            border-bottom-left-radius: 120px;
+            transition: all .5s;
+        }
+        nav ul li {
+            display: block;
+            margin: auto;
+            text-align: center;
+            opacity: 0;
+            visibility: hidden;
+            color: white;
+        }
+        nav ul li a {
+            color: white;
+        }
+        .btn-area {
+            display: none;
+        }
+        .body-image {
+            width: 100%;
+        }
+        .body-image .container {
+            height: 250px;
+        }
+        .body-image .body-text .text h1 {
+            font-size: 27px;
+        }
+        .body-image .body-text .text p {
+            width: 240px;
+            font-size: 13px;
+            text-align: center;
+            display: block;
+            margin: auto;
+            margin-top: -10px;
+        }
+        .body-image .body-text .text button {
+            height: 30px;
+            width: 90px;
+            font-size: 14px;
+            margin-top: 16px;
+        }
+        #check:checked~ul {
+            height: 100vh;
+            border-bottom-left-radius: 0px;
+        }
+        #check:checked~ul li {
+            opacity: 1;
+            visibility: visible;
+        }
+        .checkBtn {
+            display: block;
+        }
+        .body-text .text button {
+            width: 120px;
+        }
+    }
+    
+    .body-image {
+        overflow: hidden;
+        display: flex;
+        position: relative;
+        width: 100%;
+    }
+    
+    .container {
+        width: 100%;
+        height: 500px;
+        position: relative;
+        display: flex;
+        animation: slide 15s infinite;
+    }
+    
+    .body-text {
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.548);
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .body-text .text {
+        text-align: center;
+    }
+    
+    .body-text .text h1 {
+        color: white;
+        font-size: 55px;
+        text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.20);
+    }
+    
+    .body-text .text p {
+        width: 560px;
+        color: yellowgreen;
+        margin-top: -20px;
+    }
+    
+    .body-text .text button {
+        height: 45px;
+        width: 150px;
+        background-color: transparent;
+        border: 1px solid white;
+        border-radius: 3px;
+        transition: all .5s;
+        color: white;
+        font-size: 17px;
+    }
+    
+    .body-text .text button:hover {
+        background-color: rgba(139, 0, 0, 0.712);
+        cursor: pointer;
+    }
+    
+    @keyframes slide {
+        0% {
+            transform: translateX(0);
+        }
+        20% {
+            transform: translateX(0);
+        }
+        25% {
+            transform: translateX(-100%);
+        }
+        35% {
+            transform: translateX(-100%);
+        }
+        50% {
+            transform: translateX(0);
+        }
+        55% {
+            transform: translateX(-200%);
+        }
+        50% {
+            transform: translateX(-100%);
+        }
+        75% {
+            transform: translateX(-200%);
+        }
+        85% {
+            transform: translateX(-300%);
+        }
+        100% {
+            transform: translateX(-300%);
+        }
+    }
+    
+    .label {
+        width: fit-content;
+        display: block;
+        margin: auto;
+        text-align: center;
+        font-size: 23px;
+        color: rgb(119, 108, 108);
+        margin-top: 50px;
+        padding-bottom: 30px;
+    }
+    
+    .card-group {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .group1 {
+        width: 320px;
+        text-align: center;
+        padding: 10px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        box-shadow: 2px 2px 20px 2px rgba(0, 0, 0, 0.30);
+        margin: 15px 30px;
+    }
+    
+    .group1 .img-hold {
+        width: 240px;
+        display: block;
+        margin: auto;
+    }
+    
+    .group1 .title {
+        font-weight: bold;
+        font-size: 22px;
+    }
+    
+    .group1 #describe {
+        height: 150px;
+        width: 290px;
+        display: block;
+        margin: auto;
+        overflow: hidden;
+    }
+    
+    .group1 #describe1 {
+        height: 150px;
+        width: 290px;
+        display: block;
+        margin: auto;
+        overflow: hidden;
+    }
+    
+    .group1 #describe2 {
+        height: 150px;
+        width: 290px;
+        display: block;
+        margin: auto;
+        overflow: hidden;
+    }
+    
+    .group1 button {
+        display: block;
+        margin: auto;
+        padding: 10px;
+        margin-top: 20px;
+        background-color: transparent;
+        border: none;
+        color: darkred;
+    }
+    
+    .group1 #lessBtn {
+        display: none;
+    }
+    
+    .group1 #lessBtn1 {
+        display: none;
+    }
+    
+    .group1 #lessBtn2 {
+        display: none;
+    }
+    
+    .group2 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .group2 .hold {
+        width: 350px;
+        margin: 10px 20px;
+        transition: all .4s;
+        padding: 15px 10px;
+        cursor: pointer;
+    }
+    
+    .group2 .hold:hover {
+        box-shadow: 2px 2px 10px 2px rgba(0, 0, 0, 0.30);
+    }
+    
+    .group2 .hold button {
+        padding: 10px;
+        width: 170px;
+        background-color: transparent;
+        color: darkred;
+        font-size: 17px;
+        border: 1px solid darkred;
+        border-radius: 4px;
+        transition: all .5s;
+        display: block;
+        margin: auto;
+    }
+    
+    .group2 .hold button:hover {
+        background-color: darkred;
+        color: white;
+        cursor: pointer;
+    }
+    
+    .group2 .hold .group2-img {
+        width: 220px;
+        display: block;
+        margin: auto;
+    }
+    
+    .group2 .hold .group2-img img {
+        border-radius: 50%;
+    }
+    
+    .group2 .name {
+        font-weight: bold;
+        font-size: 20px;
+    }
+    
+    .group2 .hold p {
+        text-align: center;
+    }
+    
+    .group2 .name-text {
+        color: gray;
+        width: 100%;
+    }
+    
+    .group3 {
+        background-image: url(IMAGES/image5.jpeg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        /* height: 400px; */
+        margin-top: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .group3 .content {
+        padding: 20px 0px;
+        background-color: rgba(0, 0, 0, 0.486);
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .group3 h1 {
+        text-align: center;
+        font-size: 40px;
+        color: white;
+        animation: color 10s infinite;
+        /* text-shadow: 1px 1px 10px black; */
+    }
+    
+    @keyframes color {
+        25% {
+            color: rgba(139, 0, 0, 0.877);
+        }
+        45% {
+            color: rgba(78, 69, 69, 0.815);
+        }
+    }
+    
+    .group3 .p1 {
+        text-align: center;
+        font-size: 25px;
+        color: darkred;
+        background-color: #fff;
+        padding: 10px;
+    }
+    
+    .group3 .p2 {
+        text-align: center;
+        font-size: 20px;
+        color: white;
+        line-height: 50px;
+        /* text-shadow: 1px 1px 10px black; */
+    }
+    
+ <!--  .time-group {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+     .time-group .time-hol {
+        margin: ;
+    }
+    
+    .time-hol .hol {
+        height: 50px;
+        width: 45px;
+        font-size: 23px;
+        font-weight: bold;
+        display: block;
+    }
+    
+    .time-hol p {
+        display: block;
+        margin: auto;
+        text-align: center;
+        color: white;
+        text-shadow: 1px 1px 10px black;
+    }  
+    -->
+    
+    .time-group{
+       // display: inline-block;
+         margin-left: 10px;
+        justify-content :  ;
+    }
+    
+      .time-hol{
+     display: inline-block;
+        margin: ;
+        text-alig: center;
+      }
+      
+      .time-hol .hol{
+          Display: inline-block;
+          height: 20px;
+          width:35px;
+          font-size:20px;
+          font-weight: ;
+          border:;
+          border-radius:;
+          padding:5px;
+          
+      }
+    
+       .time-hol p{
+           margin-left: 29px;
+           padding: ;
+           color:;
+       }
+       #hours{
+       margin-left: 35px;
+       background: white;
+       margin-bottom: 0;
+           font-size: 30px;
+           border-radius: 5px;
+       }
+       
+       #days{
+       border-radius: 5px;
+       margin-left: 8px;
+       background: white;
+       font-size: 30px;
+           
+           
+       }
+      #seconds{
+      border-radius: 5px;
+          margin-right: 20px;
+       background: white;
+       font-size: 30px;
+      }
+      
+      #minutes{
+          margin-left: 38px;
+       background: white ;
+       font-size: 30px;
+       border-radius: 5px;
+      }
+    
+    #D{
+        Margin-Left: 20px;
+    }
+    
+    #H{
+        font-size: 13px;
+        font-weight: 2px;
+    }
+    
+    #M{
+        font-size: ;
+    }
+    
+    #s{
+        font-size: ;
+    }
+    
+    
+    
+    .content-text .regisBtn {
+        padding: 10px;
+        height: 52px;
+        width: 200px;
+        display: block;
+        margin: auto;
+        background-color: transparent;
+        border: 1px solid white;
+        border-radius: 5px;
+        font-size: 18px;
+        color: white;
+        margin-top: 30px;
+        transition: all .5s;
+    }
+    
+    .content-text .regisBtn:hover {
+        background-color: darkred;
+        color: white;
+        cursor: pointer;
+    }
+    
+    @media screen and (max-width: 720px) {
+        .label {
+            font-size: 18px;
+        }
+        .card-group .group1 {
+            width: 280px;
+        }
+        .group2 .hold .group2-img {
+            width: 200px;
+        }
+        .group3 .content h1 {
+            font-size: 30px;
+        }
+        .group3 .content .p1 {
+            font-size: 19px;
+        }
+    }
+    
+    .quote-group {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .quote-group .hold {
+        padding: 20px;
+        box-shadow: 2px 2px 20px 2px rgba(0, 0, 0, 0.30);
+        width: fit-content;
+        text-align: center;
+        margin: 10px 20px;
+    }
+    
+    .quote-group .quote {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: fit-content;
+        margin: auto;
+        color: darkred;
+    }
+    
+    .quote-group .hold .quote-author::before {
+        content: "";
+        display: block;
+        margin: auto;
+        width: 50px;
+        height: 2px;
+        background-color: gray;
+        /* position: absolute; */
+    }
+    
+    .blog-group {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .blog-group .hold {
+        width: fit-content;
+        padding: 20px 10px;
+        box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.30);
+        transition: all .5s;
+        margin: 10px 20px;
+    }
+    
+    .blog-group .hold:hover {
+        transform: translateY(-6px);
+        cursor: pointer;
+    }
+    
+    .blog-group .hold .img-hold {
+        width: 100px;
+        display: block;
+        margin: auto;
+    }
+    
+    .blog-group .hold .date {
+        text-align: center;
+        margin-top: 15px;
+        color: darkred;
+    }
+    
+    .blog-group .hold .blog {
+        width: 250px;
+        text-align: center;
+        margin-top: 10px;
+        font-weight: bold;
+        font-size: 14px;
+    }
+    
+    .blog-group .hold p {
+        display: block;
+        margin: auto;
+        text-align: center;
+    }
+    
+    .blog-group .hold .read-link {
+        text-decoration: none;
+        margin-top: 20px;
+        color: gray;
+        transition: all .3s;
+    }
+    
+    .blog-group .hold .read-link p {
+        margin-top: 20px;
+    }
+    
+    .caring-hold {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .caring-hold p {
+        margin: 15px 0px;
+    }
+    
+    .caring-hold .img-slide {
+        overflow: hidden;
+        width: 450px;
+        margin: 10px 30px;
+    }
+    
+    .caring-hold .img-slide .slide {
+        display: flex;
+        align-items: center;
+    }
+    
+    .caring-hold .img-slide .slide img {
+        animation: slideLeft 10s infinite;
+    }
+    
+    .caring-text {
+        width: 500px;
+        margin: 10px 30px;
+    }
+    
+    .caring-text .p1 {
+        font-size: 28px;
+        color: rgb(73, 71, 71);
+    }
+    
+    .caring-text .p2 {
+        font-size: 32px;
+        color: darkred;
+    }
+    
+    .caring-text .p3 {
+        font-size: 19px;
+        color: gray;
+    }
+    
+    .caring-text button {
+        width: 150px;
+        height: 42px;
+        background-color: darkred;
+        color: white;
+        font-size: 17px;
+        border: none;
+        border-radius: 5px;
+        transition: all .4s;
+    }
+    
+    .caring-text button:hover {
+        transform: scale(0.8);
+        cursor: pointer;
+    }
+    
+    @keyframes slideLeft {
+        0% {
+            transform: translateX(0);
+        }
+        20% {
+            transform: translateX(0);
+        }
+        25% {
+            transform: translateX(-100%);
+        }
+        35% {
+            transform: translateX(-100%);
+        }
+        50% {
+            transform: translateX(0);
+        }
+        55% {
+            transform: translateX(-200%);
+        }
+        50% {
+            transform: translateX(-100%);
+        }
+        75% {
+            transform: translateX(-200%);
+        }
+        85% {
+            transform: translateX(-300%);
+        }
+        100% {
+            transform: translateX(-300%);
+        }
+    }
+    
+    .form-group {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .form-hold {
+        width: 450px;
+        background-color: #fff;
+        padding: 10px;
+    }
+    
+    .form-hold .title {
+        margin-left: 15px;
+    }
+    
+    .form-hold input {
+        padding: 10px;
+        height: 27px;
+        width: 90%;
+        display: block;
+        margin: auto;
+        margin-bottom: 30px;
+        font-size: 18px;
+        border: 1px solid rgb(175, 167, 167);
+    }
+    
+    .form-hold textarea {
+        display: block;
+        margin: auto;
+        padding: 10px;
+        width: 90%;
+        height: 100px;
+    }
+    
+    .form-hold input::placeholder {
+        font-size: 16px;
+    }
+    
+    .form-hold .attach {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 14px;
+        color: darkred;
+        width: 420px;
+        margin: auto;
+    }
+    
+    .form-hold button {
+        width: 90%;
+        height: 40px;
+        background-color: darkred;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        font-size: 17px;
+        display: block;
+        margin: auto;
+    }
+    
+    .form-hold button i {
+        margin-left: -10px;
+    }
+    
+    .form-hold button a {
+        margin-left: 10px;
+        color: white;
+        text-decoration: none;
+    }
+    
+    .form-side button {
+        padding: 10px;
+        height: 50px;
+        width: 280px;
+        font-size: 16px;
+        background-color: rgb(1, 15, 6);
+        border: none;
+        border-radius: 5px;
+    }
+    
+    .form-side button i {
+        color: white;
+        font-size: 22px;
+        margin-left: -10px;
+    }
+    
+    .form-side button a {
+        color: white;
+        text-decoration: none;
+        margin-left: 10px;
+    }
+    
+    .form-hold,
+    .form-side {
+        height: 530px;
+        margin: 10px 30px;
+    }
+    
+    @media screen and (max-width: 720px) {
+        .form-group .form-hold {
+            width: 300px;
+        }
+        .form-group .form-hold .attach {
+            width: 300px;
+        }
+        .form-group .form-side {
+            height: 200px;
+        }
+    }
+    
+    .map-area button {
+        padding: 10px;
+        height: 40px;
+        width: 230px;
+        font-size: 16px;
+        background-color: darkred;
+        border: none;
+        color: white;
+        border-radius: 5px;
+        display: block;
+        margin: auto;
+        margin-top: 20px;
+        transition: all .4s;
+    }
+    
+    .map-area button:hover {
+        transform: scale(0.9);
+        cursor: pointer;
+    }
+    
+    footer {
+        background-color: rgb(5, 17, 6);
+        margin-top: 30px;
+        padding: 20px 0px;
+        color: white;
+        padding-top: 20px;
+    }
+    
+    .foot-group {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .foot-group .hold1 {
+        width: fit-content;
+        height: 310px;
+        margin: 6px 50px;
+    }
+    
+    .foot-group .hold1 p {
+        width: 220px;
+    }
+    
+    .foot-group .hold1 .logo-hold {
+        width: 200px;
+        background-color: whitesmoke;
+        padding: 20px;
+    }
+    
+    .foot-group .hold1 .logo-hold img {
+        display: block;
+        margin: auto;
+    }
+    
+    .foot-group .hold1 button {
+        padding: 10px;
+        background-color: transparent;
+        border: 1px solid white;
+        border-radius: 3px;
+        color: white;
+        transition: all .5s;
+    }
+    
+    .foot-group .hold1 button:hover {
+        background-color: darkred;
+        cursor: pointer;
+    }
+    
+    .foot-group .hold1 ul li {
+        list-style: none;
+        margin-bottom: 12px;
+        transition: all .5s;
+    }
+    
+    .foot-group .hold1 ul li:hover {
+        margin-left: 7px;
+        cursor: pointer;
+    }
+    
+    .foot-group .hold1 ul li a {
+        color: white;
+        text-decoration: none;
+        margin-left: 10px;
+    }
+    
+    .foot-group .hold1 ul li:hover a {
+        color: darkred;
+    }
+    
+    .foot-group .hold1 li {
+        list-style: none;
+        margin-bottom: 15px;
+    }
+    
+    .foot-group .hold1 li a {
+        color: white;
+        text-decoration: none;
+        margin-left: 10px;
+        transition: all .5s;
+    }
+    
+    .foot-group .hold1 li a:hover {
+        text-decoration: underline;
+    }
+    
+    footer .author {
+        text-align: center;
+        color: rgb(187, 180, 180);
+        margin-top: 10px;
+    }
+    
+    @media screen and (max-width: 720px) {
+        footer .foot-group .hold1 {
+            display: block;
+            margin: auto;
+        }
+        footer .author {
+            margin-top: -40px;
+        }
+    }
+    
+    
+.fil {
+margin-left: 12px;
+  max-width: 300px;
+  margin: 40px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+figcaption {
+  display: block;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+legend {
+  font-weight: bold;
+  font-size: 18px;
+  color: #333;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #666;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"] {
+  width: 70%;
+  height: 40px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-left: 12px;
+  
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus {
+  border-color: #aaa;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+#submit-bnt {
+  width: 100%;
+  height: 40px;
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#submit-bnt:hover {
+  background-color: #3e8e41;
+}
+
+/* Error message styling */
+input:invalid {
+  border-color: #f00;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .fil {
+    margin: 20px auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .fil {
+    width: 90%;
+    padding: 10px;
+  }
+}
+
+
+
+
+</style>
+
+<body>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkBtn"><i class="fas fa-bars"></i></label>
+        <label class="logo-hold">
+            <img src="LOGO.png" alt="lOGO.PNG" width="170px">
+        </label>
+        <ul>
+            <li>
+                <a href="">- HOME</a> <i class="fas fa-angle-down"></i>
+
+            </li>
+            <li>
+                <a href="">ABOUT</a>
+            </li>
+            <li>
+                <a href="">LEADERSHIP</a><i class="fas fa-angle-down"></i>
+            </li>
+            <li>
+                <a href="">COMMITTEES</a><i class="fas fa-angle-down"></i>
+            </li>
+            <li>
+                <a href="">DUES</a>
+            </li>
+            <li>
+                <a href="">DONTATE</a><i class="fas fa-angle-down"></i>
+            </li>
+
+
+            <label class="btn-area">
+                <button><i class="fab fa-facebook-f"></i></button>
+                
+            <button><i class="fab fa-twitter"></i></button>
+            
+            <button><i class="fab fa-youtube"></i></button>
+            
+            <button class="btn2"><i class="fas fa-user"></i></button>
+            
+            </label>
+        </ul>
+
+
+    </nav>
+
+    <div class="body-image">
+        <div class="container">
+            <img src="slide4.png" alt="slide1.png" width="100%">
+            <img src="slide2.png" alt="slide1.png" width="100%">
+            <img src="slide3.png" alt="slide1.png" width="100%">
+            <img src="slide1.png" alt="slide1.png" width="100%">
+        </div>
+        <div class="body-text">
+            <div class="text">
+                <h1>Community Buildiing</h1>
+                <p>We are committed to fostering unity, togetherness, and empowerment as well as creating thriving and vibrant neighborhoods. </p>
+                <button>Read More</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- OUR VISION SECTION -->
+    <div class="label">
+        <p>WHO WE ARE AND WHAT WE DO</p>
+    </div>
+
+    <div class="card-group">
+        <div class="group1">
+            <div class="img-hold">
+                <img src="image4.jpg" alt="image1" width="100%">
+            </div>
+            <p class="title">OUR VISION</p>
+            <div class="describe" id="describe">
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus ullam quam molestias praesentium? Consequatur obcaecati laborum nemo ad? Voluptatem iusto aperiam inventore placeat eveniet, exercitationem quidem alias error aspernatur
+                    earum!
+                </p>
+            </div>
+            <button id="showBtn" onclick="moreBtn()"><i class="fas fa-plus"></i>Show More</button>
+            <button id="lessBtn" onclick="lessBtn()"><i class="fas fa-minus"></i>Show Less</button>
+
+        </div>
+        <div class="group1">
+            <div class="img-hold">
+                <img src="image4.jpg" alt="image1" width="100%">
+            </div>
+            <p class="title">OUR VISION</p>
+            <div class="describe" id="describe1">
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus ullam quam molestias praesentium? Consequatur obcaecati laborum nemo ad? Voluptatem iusto aperiam inventore placeat eveniet, exercitationem quidem alias error aspernatur
+                    earum!
+                </p>
+            </div>
+            <button id="showBtn1" onclick="moreBtn1()"><i class="fas fa-plus"></i>Show More</button>
+            <button id="lessBtn1" onclick="lessBtn1()"><i class="fas fa-minus"></i>Show Less</button>
+
+        </div>
+        <div class="group1">
+            <div class="img-hold">
+                <img src="image4.jpg" alt="image1" width="100%">
+            </div>
+            <p class="title">OUR VISION</p>
+            <div class="describe" id="describe2">
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus ullam quam molestias praesentium? Consequatur obcaecati laborum nemo ad? Voluptatem iusto aperiam inventore placeat eveniet, exercitationem quidem alias error aspernatur
+                    earum!
+                </p>
+            </div>
+            <button id="showBtn2" onclick="moreBtn2()"><i class="fas fa-plus"></i>Show More</button>
+            <button id="lessBtn2" onclick="lessBtn2()"><i class="fas fa-minus"></i>Show Less</button>
+
+        </div>
+    </div>
+
+
+    <!-- EXECUTIVE COMMITTEE SECTION -->
+    <div class="label">
+        <p>THE MUIA EXECUTIVE COMMITTEE</p>
+    </div>
+
+    <div class="group2">
+        <div class="hold">
+            <div class="group2-img">
+                <img src="image1.jpg" alt="image1" width="100%">
+                <p class="name">Mr. Benson Emmanuel</p>
+                <p class="name-text">MR. BENSON EMMANUEL is an Engineer in the Department of Public Works, City and County of San Francisco, California. He has over 10 years of experience in electrical engineering, specializing in Communications and Signal Processing. </p>
+                <button>PRESIDENT</button>
+            </div>
+        </div>
+
+        <div class="hold">
+            <div class="group2-img">
+                <img src="image3.jpg" alt="image1" width="100%">
+                <p class="name">Mrs. James Mary Ogah</p>
+                <p class="name-text">MR. BENSON EMMANUEL is an Engineer in the Department of Public Works, City and County of San Francisco, California. He has over 10 years of experience in electrical engineering, specializing in Communications and Signal Processing. </p>
+                <button>VICE PRESIDENT</button>
+            </div>
+        </div>
+
+        <div class="hold">
+            <div class="group2-img">
+                <img src="image2.jpg" alt="image1" width="100%">
+                <p class="name">Mr. Benedict Micheal</p>
+
+                <p class="name-text">MR. BENSON EMMANUEL is an Engineer in the Department of Public Works, City and County of San Francisco, California. He has over 10 years of experience in electrical engineering, specializing in Communications and Signal Processing.
+                </p>
+
+                <button>PRESIDENT</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="group2">
+        <div class="hold">
+            <div class="group2-img">
+                <img src="image1.jpg" alt="image1" width="100%">
+                <p class="name">Mr. Benson Emmanuel</p>
+                <p class="name-text">MR. BENSON EMMANUEL is an Engineer in the Department of Public Works, City and County of San Francisco, California. He has over 10 years of experience in electrical engineering, specializing in Communications and Signal Processing. </p>
+                <button>PRESIDENT</button>
+            </div>
+        </div>
+
+        <div class="hold">
+            <div class="group2-img">
+                <img src="image3.jpg" alt="image1" width="100%">
+                <p class="name">Mrs. James Mary Ogah</p>
+                <p class="name-text">MR. BENSON EMMANUEL is an Engineer in the Department of Public Works, City and County of San Francisco, California. He has over 10 years of experience in electrical engineering, specializing in Communications and Signal Processing. </p>
+                <button>VICE PRESIDENT</button>
+            </div>
+        </div>
+
+        <div class="hold">
+            <div class="group2-img">
+                <img src="image2.jpg" alt="image1" width="100%">
+                <p class="name">Mr. Benedict Micheal</p>
+
+                <p class="name-text">MR. BENSON EMMANUEL is an Engineer in the Department of Public Works, City and County of San Francisco, California. He has over 10 years of experience in electrical engineering, specializing in Communications and Signal Processing.
+                </p>
+
+                <button>PRESIDENT</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONVENTION SECTION -->
+
+    <div class="group3" style="background-color: #ff95a1">
+        <div class="content">
+            <div class="content-text">
+                <h1>2025 DMV CONVENTION</h1>
+                <p class="p1">The 31st Annual Convention of the Idoma Association (DMV) </p>
+                <p class="p2">St. Louis, Missouri <br> July 31 - August 3, 2025</p>
+
+
+      
+                 <div class="time-group">
+         <div class="time-hol">
+         <div class="hol">
+         <span id="days">00</span>
+                </div>
+              <p id="D">Days</p>
+                </div>
+                
+
+     <div class="time-hol">
+     <div class="hol">
+       <span id="hours">00</span>
+              <p id="H">Hours</p>
+              </div>
+
+     <div class="time-hol">
+     <div class="hol">
+         <span id="minutes">00</span>
+                </div>
+               <p id="M">Minutes</p>
+                    </div>
+
+     <div class="time-hol">
+     <div class="hol">
+      <span id="seconds">00</span>
+             </div>
+             <p id="S">Seconds</p>
+                   </div>
+
+
+        </div>
+    </div>
+    <div> 
+
+               
+          <!--  <div class="regisBtn">REGISTER NOW</button>
+      
+</div>
+
+ -->
+ <br><br>
+ <form class="fil" id="contactform" style="background-color: white"> 
+   <figcaption>
+       <label>Name</label><br>
+       <input type="text" name="Name" id="name" placeholder="Names goes here" required><br>
+    <label>phone</label><br>
+       <input type="number" name="Name" id="phone" placeholder="Mobil digit" required><br>
+    <label>email</label><br>
+       <input type="email" name="Name" id="Email" placeholder="Email" required>    <br>
+       <input type="submit" value="REGISTER NOw" id="submit-bnt">
+   </figcaption>
+ 
+    <!-- INSPIRITION QUOTES SECTION -->
+    <div class="label">
+        Inspiritional Quotes
+    </div>
+    <div class="quote-group">
+        <div class="hold">
+            <div class="quote">
+                <i class="fas fa-quote-left"></i>
+                <h2>QUOTES OF LIFE</h2>
+                <i class="fas fa-quote-right"></i>
+            </div>
+
+            <p>No one has ever become poor by giving.</p>
+            <p class="quote-author">Anne Frank </p>
+        </div>
+        <div class="hold">
+            <div class="quote">
+                <i class="fas fa-quote-left"></i>
+                <h2>QUOTES OF LIFE</h2>
+                <i class="fas fa-quote-right"></i>
+            </div>
+
+            <p>No one has ever become poor by giving.</p>
+            <p class="quote-author">Anne Frank </p>
+        </div>
+        <div class="hold">
+            <div class="quote">
+                <i class="fas fa-quote-left"></i>
+                <h2>QUOTES OF LIFE</h2>
+                <i class="fas fa-quote-right"></i>
+            </div>
+
+            <p>No one has ever become poor by giving.</p>
+            <p class="quote-author">Anne Frank </p>
+        </div>
+    </div>
+
+    <!-- MUTA BLOG SECTION -->
+    <div class="label">
+        <p>DMV Blog</p>
+    </div>
+    <div class="blog-group">
+        <div class="hold">
+            <div class="img-hold">
+                <img src="image3.jpg" alt="image3" width="100%">
+            </div>
+            <p class="date">December 12, 2023</p>
+            <p class="blog">LOREM IPSUM: dolor sit amet consectetur adipisicing elit. Quas dolorum vel odio numquam repellat.</p>
+            <a class="read-link" href="#">
+                <p>Continue Reading</p>
+            </a>
+
+        </div>
+        <div class="hold">
+            <div class="img-hold">
+                <img src="image3.jpg" alt="image3" width="100%">
+            </div>
+            <p class="date">December 12, 2023</p>
+            <p class="blog">LOREM IPSUM: dolor sit amet consectetur adipisicing elit. Quas dolorum vel odio numquam repellat.</p>
+            <a class="read-link" href="#">
+                <p>Continue Reading</p>
+            </a>
+
+        </div>
+
+        <div class="hold">
+            <div class="img-hold">
+                <img src="image3.jpg" alt="image3" width="100%">
+            </div>
+            <p class="date">December 12, 2023</p>
+            <p class="blog">LOREM IPSUM: dolor sit amet consectetur adipisicing elit. Quas dolorum vel odio numquam repellat.</p>
+            <a class="read-link" href="#">
+                <p>Continue Reading</p>
+            </a>
+
+        </div>
+        <div class="hold">
+            <div class="img-hold">
+                <img src="image3.jpg" alt="image3" width="100%">
+            </div>
+            <p class="date">December 12, 2023</p>
+            <p class="blog">LOREM IPSUM: dolor sit amet consectetur adipisicing elit. Quas dolorum vel odio numquam repellat.</p>
+            <a class="read-link" href="#">
+                <p>Continue Reading</p>
+            </a>
+
+        </div>
+    </div>
+
+    <!-- DONATE SECTION -->
+
+    <div class="label">
+        <p>DONATE TO THE POOR</p>
+    </div>
+    <div class="caring-hold">
+        <div class="img-slide">
+            <div class="slide">
+                <img src="s1.jpg" alt="" width="100%">
+                <img src="s2.jpg" alt="" width="100%">
+                <img src="s3.jpg" alt="" width="100%">
+                <img src="s4.jpg" alt="" width="100%">
+                <img src="s5.jpg" alt="" width="100%">
+                <img src="s6.webp" alt="" width="100%">
+            </div>
+        </div>
+
+        <div class="caring-text">
+            <p class="p1">JOIN US</p>
+            <p class="p2">Help Our Cause</p>
+            <p class="p3">Your support and contributions will enable us to meet our goals and fund our mission.</p>
+            <button>DONATE</button>
+
+        </div>
+    </div>
+
+
+    <!-- CONTACT SECTION -->
+
+    <div class="label">
+        <p>CONTACT US</p>
+    </div>
+
+    <div class="form-group">
+        <div class="form-hold">
+            <p class="title">Drop us a Line!</p>
+            <input type="text" name="name" id="" placeholder="Name">
+            <input type="email" name="email" id="" placeholder="Email*">
+            <input type="text" name="text" id="" placeholder="Where did you hear about us?">
+            <textarea name="message" id=""></textarea>
+            <div class="attach">
+                <p><i class="fas fa-paperclip"></i>Attach Files</p>
+                <p>Attachments(0)</p>
+            </div>
+            <button><i class="fas fa-paper-plane"></i><a href="">Send</a></button>
+        </div>
+
+        <div class="form-side">
+            <button><i class="fab fa-whatsapp"></i><a href="">Message Us on WhatsApp</a></button>
+            <p>DMV Inc.</p>
+            <p>5361 Hiram Road, Powder Springs, Georgia 30127, United States</p>
+            <p>6789024933/info@dmv.org</p>
+        </div>
+    </div>
+
+    <!-- MAP SECTION -->
+    <div class="label">
+        <p>LOCATE US</p>
+    </div>
+
+    <div class="map-area">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3184964.136392928!2d-79.87802927222755!3d38.77937723371797!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b64debe9f190df%3A0xf2af37657655f6b1!2sMaryland%2C%20USA!5e0!3m2!1sen!2sng!4v1727422217879!5m2!1sen!2sng"
+            width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <button><i class="fas fa-paper-plane"></i>GET DIRECTIONS</button>
+    </div>
+    <footer>
+        <div class="foot-group">
+            <div class="hold1">
+                <div class="logo-hold">
+                    <img src="LOGO.png" alt="logo" width="100%">
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id autem repudiandae laborum molestiae.</p>
+                <button>Read More</button>
+            </div>
+
+            <div class="hold1">
+                <h1>Other Links</h1>
+                <ul>
+                    <li> <i class="fas fa-caret-right"></i>
+                        <a href="">Home</a>
+                    </li>
+                    <li> <i class="fas fa-caret-right"></i>
+                        <a href="">About</a>
+                    </li>
+                    <li> <i class="fas fa-caret-right"></i>
+                        <a href="">LeaderShip</a>
+                    </li>
+                    <li> <i class="fas fa-caret-right"></i>
+                        <a href="">Committees</a>
+                    </li>
+                    <li> <i class="fas fa-caret-right"></i>
+                        <a href="">Dues</a>
+                    </li>
+                    <li> <i class="fas fa-caret-right"></i>
+                        <a href="">Donate</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="hold1">
+                <h1>Contact Us</h1>
+                <li> <i class="fas fa-phone-volume"></i>
+                    <a href="tel:+">+222 222 2222</a>
+                </li>
+                <li> <i class="fas fa-phone-volume"></i>
+                    <a href="tel:+">+222 222 2222</a>
+                </li>
+                <li> <i class="fas fa-envelope"></i>
+                    <a href="mailto:">info@dmv.org</a>
+                </li>
+            </div>
+
+            <div class="hold1">
+                <h1>Social Media</h1>
+                <div class="social-icons">
+                    <button class="fab fa-whatsapp"></button>
+                    <button class="fab fa-twitter"></button>
+                    <button class="fas fa-paper-plane"></button>
+                    <button class="fab fa-facebook-f"></button>
+                </div>
+            </div>
+        </div>
+        <p class="author">Copyright © 2024 MUTA Inc - All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function moreBtn() {
+            document.getElementById("describe").style.height = "240px";
+            document.getElementById("showBtn").style.display = "none";
+            document.getElementById("lessBtn").style.display = "block";
+
+        }
+
+        function lessBtn() {
+            document.getElementById("describe").style.height = "150px";
+            document.getElementById("showBtn").style.display = "block";
+            document.getElementById("lessBtn").style.display = "none";
+
+        }
+
+        function moreBtn1() {
+            document.getElementById("describe1").style.height = "240px";
+            document.getElementById("showBtn1").style.display = "none";
+            document.getElementById("lessBtn1").style.display = "block";
+        }
+
+        function lessBtn1() {
+            document.getElementById("describe1").style.height = "150px";
+            document.getElementById("showBtn1").style.display = "block";
+            document.getElementById("lessBtn1").style.display = "none";
+
+        }
+
+        function moreBtn2() {
+            document.getElementById("describe2").style.height = "240px";
+            document.getElementById("showBtn2").style.display = "none";
+            document.getElementById("lessBtn2").style.display = "block";
+        }
+
+        function lessBtn2() {
+            document.getElementById("describe2").style.height = "150px";
+            document.getElementById("showBtn2").style.display = "block";
+            document.getElementById("lessBtn2").style.display = "none";
+        }
+        
+        
+        
+  const countDownDate = new Date('2025-07-31T00:00:00').getTime();
+      setInterval(()=>{
+  const now= new Date().getTime();
+  const timeLeft = countDownDate - now;
+  
+const days = Math.floor(timeLeft / (24*60*60*1000));
+  
+    const hours = Math.floor((timeLeft % (24*60*60*1000)) / (60*60*1000));
+  
+  const minutes = Math.floor((timeLeft % (60*60*1000)) / (60*1000));
+  
+  const seconds = Math.floor((timeLeft % (60*1000)) /1000);
+  
+  document.getElementById('days').innerHTML = padZero(days);
+     document.getElementById('hours').innerHTML = padZero(hours);
+     
+     document.getElementById('minutes').innerHTML = padZero(minutes);
+    
+     document.getElementById('seconds').innerHTML = padZero(seconds);
+     },1000);
+    function padZero(value){
+        return(value < 10 ? '0':"") + value;
+    }
+     
+     */
+     
+     
+     const form =  document.getElementById('contactform');
+   const submitBtn = document.getElementById('submit-bnt');
+submitBtn.addEventListener('click',(e)=>{
+       e.PreventDefault();
+const name = document.getElementById('name').value.trim();
+const phone = document.getElementById('phone').value.trim();
+   if(name === "" || phone ===""){
+       alert("please fill in both field");
+       return;
+   }
+   
+   $.ajax({
+       type:'POST',
+       url:'send_email.php',
+       data:{
+           name:name,
+           phone:phone
+           
+       }, success:(response)=>{
+           console.log('Email sent successfully', response);
+           alert('Thank you for submitting!');
+           
+           form.reset();
+       },
+       error: (error) =>{
+           console.error('Error sending email:', error);
+       }
+   });
+   });
+   
+   
+   <?php
+   $name = $_POST['name'];
+   $phone = $_POST['phone'];
+    $to = 'taiwod842@gmail.com';
+  $subject= 'Contact Form Submission';
+   $message = "Name: $name\nPhone":
+   $phone";
+        mail($to, $subject, $message);
+        echo'email sent successfully!';
+        ?>*/
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+const form = document.getElementById('contactform');
+const submitBtn = document.getElementById('submit-bnt');
+
+submitBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  const name = document.getElementById('name').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+  if (name === "" || phone === "" || !emailRegex.test(phone)) {
+    alert("Please fill in both fields with valid phone number or email");
+    return;
+  }
+
+  $.ajax({
+    type: 'POST',
+    url: 'send_email.php',
+    data: {
+      name: name,
+      phone: phone
+    },
+    success: (response) => {
+      console.log('Email sent successfully', response);
+      alert('Thank you for submitting!');
+      form.reset();
+    },
+    error: (error) => {
+      console.error('Error sending email:', error);
+    }
+  });
+});
+
+
+<?php
+  $name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
+  $phone = filter_var($_POST['phone'], FILTER_SANITIZE_STRING);
+  $to = 'taiwod842@gmail.com';
+  $subject = 'Contact Form Submission';
+  $message = "Name: $name\nPhone: $phone";
+
+  if (mail($to, $subject, $message)) {
+    echo 'Email sent successfully!';
+  } else {
+    echo 'Error sending email!';
+  }
+?>
+
+
+
+
+
+
+
+
+
+
+        
+    </script>
+    
+    
+    
+</body>
+
+</html
+

@@ -1354,12 +1354,12 @@ input:invalid {
 
  -->
  <br><br>
- <form class="fil" id="contactform" style="background-color: white"> 
+ <form action="contact.php" method="post" class="fil" id="contactform" style="background-color: white"> 
    <figcaption>
        <label>Name</label><br>
        <input type="text" name="Name" id="name" placeholder="Names goes here" required><br>
     <label>phone</label><br>
-       <input type="number" name="Name" id="phone" placeholder="Mobil digit" required><br>
+       <input type="tel" name="Name" id="phone" placeholder="Mobil digit" required><br>
     <label>email</label><br>
        <input type="email" name="Name" id="Email" placeholder="Email" required>    <br>
        <input type="submit" value="REGISTER NOw" id="submit-bnt">
@@ -1644,8 +1644,10 @@ const days = Math.floor(timeLeft / (24*60*60*1000));
     function padZero(value){
         return(value < 10 ? '0':"") + value;
     }
+    
+    
      
-     */
+     /*
      
      
      const form =  document.getElementById('contactform');
@@ -1706,6 +1708,7 @@ submitBtn.addEventListener('click', (e) => {
   e.preventDefault();
   const name = document.getElementById('name').value.trim();
   const phone = document.getElementById('phone').value.trim();
+  const Email = document.getElementById('Email').value.trim();
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
   if (name === "" || phone === "" || !emailRegex.test(phone)) {
@@ -1730,22 +1733,6 @@ submitBtn.addEventListener('click', (e) => {
     }
   });
 });
-
-
-<?php
-  $name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
-  $phone = filter_var($_POST['phone'], FILTER_SANITIZE_STRING);
-  $to = 'taiwod842@gmail.com';
-  $subject = 'Contact Form Submission';
-  $message = "Name: $name\nPhone: $phone";
-
-  if (mail($to, $subject, $message)) {
-    echo 'Email sent successfully!';
-  } else {
-    echo 'Error sending email!';
-  }
-?>
-
 
 
 
